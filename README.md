@@ -54,7 +54,7 @@ is used in the optmization.
 
 This will create a dataset as described above. You can't run it without providing the "reference" dataset (which can be the la.tgz dataset here) in another path and putting the path into this file (in the rglob line)
 
-01_create_public_dataset_large.py
+## 01_create_public_dataset_large.py
 
 The same as above, but it generates a much larger non-balanced dataset from our confidential template dataset using public text.
 Again, you can use it only with a template, take our public dataset as the template if you want to reproduce it. Move it somewhere and give it to the system
@@ -63,16 +63,20 @@ Again, you can use it only with a template, take our public dataset as the templ
 ```
 bzip la-large-full/single-file.txt.bz2
 ```
-02_single_classifiers.py
+## 02_single_classifiers.py
 
 This implements the first experiment. It is based on the text mining documentation of scikit learn and just.
 
-THIS FILE IS UNDER BSD LICENSE!
+BEING DERIVED FROM A BSD LICENSE SOURCE, THIS FILE IS UNDER BSD LICENSE!
 
-03_abstain_la.py
+## 03_abstain_la.py
 
 Here, we add abstaining to the classifiers.
 
-04_abstain_voting_lalarge.py
+BEING DERIVED FROM A BSD LICENSE SOURCE, THIS FILE IS UNDER BSD LICENSE!
+
+## 04_abstain_voting_lalarge.py
 
 Here we abstain voting and abstaining from ensembles of abstaining classifiers. This does only work on the large yet unbalanced dataset.
+
+BEING DERIVED FROM A BSD LICENSE SOURCE, THIS FILE IS UNDER BSD LICENSE!
