@@ -7,7 +7,7 @@ import numpy as np
 import json
 from sklearn.metrics import confusion_matrix
 
-o"""
+"""
 Section 1: Data Generation for the Synthesis of Example Datasets
 """
 

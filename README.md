@@ -36,7 +36,7 @@ in the remaining 10%, we follow our (here balanced) distribution of residential 
 
 ## Preflight
 
-Before using this, extract la.zip. Don't extract the files in la-large-full, they are consumed in this form.
+Before using this, extract la.tbz using ```tar -xjf la.tbz```. Don't extract the files in la-large-full, they are consumed in this form.
 
 
 ## abstaining.py
@@ -68,15 +68,107 @@ bzip la-large-full/single-file.txt.bz2
 This implements the first experiment. It is based on the text mining documentation of scikit learn and just.
 
 BEING DERIVED FROM A BSD LICENSE SOURCE, THIS FILE IS UNDER BSD LICENSE!
+Compare cycler==0.10.0
+joblib==1.0.1
+kiwisolver==1.3.1
+matplotlib==3.4.2
+numpy==1.20.2
+Pillow==8.2.0
+pyparsing==2.4.7
+python-dateutil==2.8.1
+scikit-learn==0.24.2
+scipy==1.6.3
+six==1.16.0
+sklearn==0.0
+threadpoolctl==2.1.0
+tqdm==4.60.0
+cycler==0.10.0
+joblib==1.0.1
+kiwisolver==1.3.1
+matplotlib==3.4.2
+numpy==1.20.2
+Pillow==8.2.0
+pyparsing==2.4.7
+python-dateutil==2.8.1
+scikit-learn==0.24.2
+scipy==1.6.3
+six==1.16.0
+sklearn==0.0
+threadpoolctl==2.1.0
+tqdm==4.60.0
+
 
 ## 03_abstain_la.py
 
 Here, we add abstaining to the classifiers.
 
 BEING DERIVED FROM A BSD LICENSE SOURCE, THIS FILE IS UNDER BSD LICENSE!
+compare with https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html
+
 
 ## 04_abstain_voting_lalarge.py
 
 Here we abstain voting and abstaining from ensembles of abstaining classifiers. This does only work on the large yet unbalanced dataset.
 
 BEING DERIVED FROM A BSD LICENSE SOURCE, THIS FILE IS UNDER BSD LICENSE!
+compare with https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html
+
+
+
+# Appendix
+
+## Docker log including all versions
+
+```
+martin@werner:~/2021work/agile21_abstaining$ docker build -t agile21_abstaining .
+Sending build context to Docker daemon  81.02MB
+Step 1/3 : FROM python:3.7.10-buster
+ ---> 3a781253f798
+Step 2/3 : ADD requirements.txt /requirements.txt
+ ---> 05b53dbfa16e
+Step 3/3 : RUN pip3 install -r requirements.txt
+ ---> Running in 5feef65e5e09
+Collecting scipy
+  Downloading scipy-1.6.3-cp37-cp37m-manylinux1_x86_64.whl (27.4 MB)
+Collecting sklearn
+  Downloading sklearn-0.0.tar.gz (1.1 kB)
+Collecting tqdm
+  Downloading tqdm-4.60.0-py2.py3-none-any.whl (75 kB)
+Collecting matplotlib
+  Downloading matplotlib-3.4.2-cp37-cp37m-manylinux1_x86_64.whl (10.3 MB)
+Collecting numpy
+  Downloading numpy-1.20.2-cp37-cp37m-manylinux2010_x86_64.whl (15.3 MB)
+Collecting scikit-learn
+  Downloading scikit_learn-0.24.2-cp37-cp37m-manylinux2010_x86_64.whl (22.3 MB)
+Collecting pyparsing>=2.2.1
+  Downloading pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+Collecting cycler>=0.10
+  Downloading cycler-0.10.0-py2.py3-none-any.whl (6.5 kB)
+Collecting python-dateutil>=2.7
+  Downloading python_dateutil-2.8.1-py2.py3-none-any.whl (227 kB)
+Collecting kiwisolver>=1.0.1
+  Downloading kiwisolver-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (1.1 MB)
+Collecting pillow>=6.2.0
+  Downloading Pillow-8.2.0-cp37-cp37m-manylinux1_x86_64.whl (3.0 MB)
+Collecting six
+  Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting joblib>=0.11
+  Downloading joblib-1.0.1-py3-none-any.whl (303 kB)
+Collecting threadpoolctl>=2.0.0
+  Downloading threadpoolctl-2.1.0-py3-none-any.whl (12 kB)
+Building wheels for collected packages: sklearn
+  Building wheel for sklearn (setup.py): started
+  Building wheel for sklearn (setup.py): finished with status 'done'
+  Created wheel for sklearn: filename=sklearn-0.0-py2.py3-none-any.whl size=1316 sha256=ef71da7545f3df1bcc1336ebd3d93330ea076a8845b07fd2ce610ce4e1938c90
+  Stored in directory: /root/.cache/pip/wheels/46/ef/c3/157e41f5ee1372d1be90b09f74f82b10e391eaacca8f22d33e
+Successfully built sklearn
+Installing collected packages: numpy, threadpoolctl, six, scipy, joblib, scikit-learn, python-dateutil, pyparsing, pillow, kiwisolver, cycler, tqdm, sklearn, matplotlib
+Successfully installed cycler-0.10.0 joblib-1.0.1 kiwisolver-1.3.1 matplotlib-3.4.2 numpy-1.20.2 pillow-8.2.0 pyparsing-2.4.7 python-dateutil-2.8.1 scikit-learn-0.24.2 scipy-1.6.3 six-1.16.0 sklearn-0.0 thread
+poolctl-2.1.0 tqdm-4.60.0
+WARNING: Running pip as root will break packages and permissions. You should install packages reliably by using venv: https://pip.pypa.io/warnings/venv
+Removing intermediate container 5feef65e5e09
+ ---> d2a558e4c4c4
+Successfully built d2a558e4c4c4
+Successfully tagged agile21_abstaining:latest
+
+```
