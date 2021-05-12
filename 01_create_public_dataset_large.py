@@ -45,12 +45,12 @@ if __name__=="__main__":
     np.random.seed(42)
     random.seed (42)
 
-    drfaust, faust, revies = get_datasets()
+    drfaust, faust, reviews = get_datasets()
     
     os.mkdir("la-large-full")
     out = open("la-large-full/single-file.txt","w")
     lineage = open("01_create_public_dataset_large_lineage.json","w")
-    for line in tqdm(bz2.BZ2File("../../la-large-full/single-file.txt.bz2","r")): # note that you don't have this file. But you can take the one in this repository if you like to test this script and or the parameters
+    for line in tqdm(bz2.BZ2File("input/single-file.txt.bz2","r")): # note that you don't have this file. But you can take the one in this repository if you like to test this script and or the parameters
         record = dict()
         line = line.decode()
         if np.random.random() < 0.9:
@@ -69,7 +69,7 @@ if __name__=="__main__":
         lineage.write(json.dumps(record)+"\n")
         out.write(string + "\n")
         
-        print(""" 
+    print(""" 
 Congratulations. 
                   
 Note that you must compress the single-file.txt in the folder la-large-full yourself.

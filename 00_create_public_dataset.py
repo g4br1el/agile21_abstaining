@@ -53,7 +53,7 @@ if __name__=="__main__":
     os.mkdir("la/right/commercial")
     os.mkdir("la/right/residential")
 
-    dataset = ["/".join(str(x).split("/")[2:]) for x in Path('../../la').rglob('*.txt')]
+    dataset = ["/".join(str(x).split("/")[1:]) for x in Path('input/la').rglob('*.txt')]
 
     lineage = open("00_create_public_dataset_lineage.json","w") # this contains lineage (all sources, choices, randomness)
 

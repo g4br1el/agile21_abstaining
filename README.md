@@ -172,3 +172,32 @@ Successfully built d2a558e4c4c4
 Successfully tagged agile21_abstaining:latest
 
 ```
+
+
+
+## Synthetic Dataset Generator Demo
+
+Without the original dataset, the synthetic data generators are a bit strange as you can only run them on the synthetic dataset I have given to you. But this is how you could proceed:
+```
+martin@werner:~/2021work/agile21_abstaining$cd input
+martin@werner:~/2021work/agile21_abstaining/input$ tar -xjf ../la.tbz
+martin@werner:~/2021work/agile21_abstaining/input$ cd ..
+martin@werner:~/2021work/agile21_abstaining$ rm la -Rf
+martin@werner:~/2021work/agile21_abstaining$ python3 00_create_public_dataset.py 
+64531it [00:02, 23020.90it/s]
+``
+
+
+And for the large one, put the one you have into input as well. And then
+
+```
+martin@werner:~/2021work/agile21_abstaining$ rm -Rf la-large-full/
+martin@werner:~/2021work/agile21_abstaining$ python3 01_create_public_dataset_large.py
+1060232it [00:11, 94323.75it/s]
+
+Congratulations.
+
+Note that you must compress the single-file.txt in the folder la-large-full yourself.
+Run (for example): bzip2 la-large-full/single-file.txt
+
+```
