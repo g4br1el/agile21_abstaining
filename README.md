@@ -12,8 +12,9 @@ We have been applying our machinery to a collection of tweet objects obtained fr
 to Twitter regulations as well as to the situation with respect to privacy rights (right of users to delete data 
 after we got them from the stream), we cannot publish the data.
 
-Tweet IDs: But we are allowed to publish the involved tweet IDs. These are available in the synthetic dataset as the 
-filenames. You will be able to download (most of) those tweets with your own API credentials using the given IDs.
+Tweet IDs: But we are allowed to publish the involved tweet IDs. These are available in the synthetic dataset as the filenames. 
+Additionally, the tweet IDs are listed in the file `tweet_ids.txt.bz2`. You will be able to download (most of) those tweets with your own API credentials using the given IDs.
+
 
 Synthetic Dataset: The situation of the paper is roughly that a majority of the text objects assigned to commercial or
 residential buildings by proximity is irrelevant for the building. But we believe a little bit is. Our synthetic problem
@@ -31,6 +32,7 @@ extracted in each step. For all files in the original dataset, we create a novel
 in 90% of the cases, we sample the next 12 words from Amazon Reviews
 in the remaining 10%, we follow our (here balanced) distribution of residential and commercial.
 
+OSM data is used to join tweets and buildings (assigning classes residential and commercial). Details can be found here: https://dl.acm.org/doi/10.1145/3282834.3282837
 
 # Section 2: Overview
 
